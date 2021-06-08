@@ -33,22 +33,35 @@ class ViewController: UIViewController {
         updateUI()
     }
     
+    func updateCorrectWord() {
+        var displayWord = [String]()
+        for letter in currentGame.guessedWord {
+            displayWord.append(String(letter))
+        }
+        correctWordLabel.text = displayWord.joined(separator: " ")
+    }
+    
     func updateUI() {
         let movesRemaining = currentGame.incorrectMovesRemaining
-        let image = "Tree\(movesRemaining < 8 ? movesRemaining : 7)"
+//        let imageNumber = movesRemaining < 0 ? 0 : movesRemaining < 8 ? movesRemaining : 7
+        let imageNumber = (movesRemaining + 64) % 8
+        let image = "Tree\(imageNumber)"
         treeImageView.image = UIImage(named: image)
+        updateCorrectWord()
         scoreLabel.text = "Выигрыши: \(totalWins), проигрыши: \(totalLoses)"
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         newRound()
-        // Do any additional setup after loading the view.
     }
 
     // MARK: - IB Actions
     @IBAction func letterButtonPressed(_ sender: UIButton) {
         sender.isEnabled = false
+        let letter = sender.title(for: .normal)!
+        currentGame.playerGuessed(letter: Character(letter))
+        updateUI()
     }
 }
 
