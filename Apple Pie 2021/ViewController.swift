@@ -36,13 +36,13 @@ class ViewController: UIViewController {
     
     // MARK: - Methods
     
-    func enableButtons(_ enable: Bool = true) {
+    private func enableButtons(_ enable: Bool = true) {
         for buttons in letterButtons {
             buttons.isEnabled = enable
         }
     }
     
-    func newRound() {
+    private func newRound() {
         guard !listOfWords.isEmpty else {
             enableButtons(false)
             updateUI()
@@ -54,7 +54,7 @@ class ViewController: UIViewController {
         enableButtons()
     }
     
-    func updateCorrectWord() {
+    private func updateCorrectWord() {
         var displayWord = [String]()
         for letter in currentGame.guessedWord {
             displayWord.append(String(letter))
@@ -62,7 +62,7 @@ class ViewController: UIViewController {
         correctWordLabel.text = displayWord.joined(separator: " ")
     }
     
-    func updateState() {
+    private func updateState() {
         if currentGame.incorrectMovesRemaining < 1 {
             totalLoses += 1
         } else if currentGame.guessedWord == currentGame.word {
@@ -72,7 +72,7 @@ class ViewController: UIViewController {
         }
     }
     
-    func updateUI() {
+    private func updateUI() {
         let movesRemaining = currentGame.incorrectMovesRemaining
 //        let imageNumber = movesRemaining < 0 ? 0 : movesRemaining < 8 ? movesRemaining : 7
         let imageNumber = (movesRemaining + 64) % 8
@@ -81,6 +81,7 @@ class ViewController: UIViewController {
         updateCorrectWord()
         scoreLabel.text = "Выигрыши: \(totalWins), проигрыши: \(totalLoses)"
     }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()

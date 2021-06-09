@@ -4,6 +4,7 @@
 //
 //  Created by Евгений Гуляев on 08.06.2021.
 //
+import AVFoundation
 
 struct Game {
     var word: String
@@ -31,7 +32,9 @@ struct Game {
         let lowerCasedLetter = Character(letter.lowercased())
         guessedLetters.append(lowerCasedLetter)
         if !word.lowercased().contains(lowerCasedLetter) {
+            AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
             incorrectMovesRemaining -= 1
         }
     }
+    
 }
