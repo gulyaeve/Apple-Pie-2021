@@ -8,12 +8,14 @@ import AVFoundation
 
 struct Game {
     var word: String
+    var hint: String
     var incorrectMovesRemaining: Int
     fileprivate var guessedLetters = [Character]()
     
-    init(word: String, incorrectMovesRemaining: Int) {
+    init(word: String, hint: String, incorrectMovesRemaining: Int) {
         self.word = word
         self.incorrectMovesRemaining = incorrectMovesRemaining
+        self.hint = hint
     }
     
     var guessedWord: String {
