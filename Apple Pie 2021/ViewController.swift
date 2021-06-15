@@ -15,11 +15,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var correctWordLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var hintLabel: UILabel!
+    @IBOutlet weak var hintCountLabel: UILabel!
+    
     
     
     // MARK: - Properties
     var currentGame: Game!
     let incorrectMovesAllowed = 7
+    var hintCount = 7
     var listOfWords = [
         ["Урок", "Форма организации обучения с целью овладения учащимися изучаемым материалом"],
         ["Перемена", "Перерыв между уроками"],
@@ -52,6 +55,20 @@ class ViewController: UIViewController {
     
     // MARK: - Methods
     
+    private func displayAlert(){
+        let dialogMessage = UIAlertController(title: "Игра окончена", message: "Слов отгадано: \(totalWins) \n Cлов не отгадано: \(totalLoses)", preferredStyle: .alert)
+         
+         // Create OK button with action handler
+         let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+//             print("Ok button tapped")
+          })
+         
+         //Add OK button to a dialog message
+         dialogMessage.addAction(ok)
+         // Present Alert to
+         self.present(dialogMessage, animated: true, completion: nil)
+    }
+    
     private func enableButtons(_ enable: Bool = true) {
         for buttons in letterButtons {
             buttons.isEnabled = enable
@@ -61,6 +78,7 @@ class ViewController: UIViewController {
     private func newRound() {
         guard !listOfWords.isEmpty else {
             enableButtons(false)
+            displayAlert()
             updateUI()
             return
         }
@@ -95,7 +113,13 @@ class ViewController: UIViewController {
 //        let imageNumber = movesRemaining < 0 ? 0 : movesRemaining < 8 ? movesRemaining : 7
         let imageNumber = (movesRemaining + 64) % 8
         let image = "Tree\(imageNumber)"
-        hintLabel.text = currentGame.hint
+        if hintCount < 0 {
+            hintCountLabel.text = "Подсказки: 0"
+            hintLabel.text = "Подсказок больше нет"
+        } else {
+            hintCountLabel.text = "Подсказки: \(hintCount)"
+            hintLabel.text = currentGame.hint
+        }
         treeImageView.image = UIImage(named: image)
         updateCorrectWord()
         scoreLabel.text = "Выигрыши: \(totalWins), проигрыши: \(totalLoses)"
@@ -115,7 +139,7 @@ class ViewController: UIViewController {
             currentGame.playerGuessed(letter: Character(letter))
         } else {
             hintLabel.isHidden = false
-            updateUI()
+            hintCount -= 1
         }
         updateState()
     }

@@ -16,14 +16,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apple Pie" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VgQ-bk-Qgb">
-                                <rect key="frame" x="144" y="429.5" width="126.5" height="37"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VgQ-bk-Qgb">
+                                <rect key="frame" x="91" y="410.5" width="232.5" height="75"/>
+                                <string key="text">Педагогический
+Apple Pie</string>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                 <color key="textColor" systemColor="systemBlueColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="by Gulyaeve" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ba-KJ-YC0">
-                                <rect key="frame" x="156" y="474" width="103" height="23"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="by Gulyaeve" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ba-KJ-YC0">
+                                <rect key="frame" x="155.5" y="491.5" width="103" height="23"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -34,7 +36,7 @@
                         <constraints>
                             <constraint firstItem="VgQ-bk-Qgb" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="2Qu-gO-rhN"/>
                             <constraint firstItem="3ba-KJ-YC0" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="VbA-GM-epQ"/>
-                            <constraint firstItem="3ba-KJ-YC0" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="40" id="kiT-Gl-VpS"/>
+                            <constraint firstItem="3ba-KJ-YC0" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="55" id="kiT-Gl-VpS"/>
                             <constraint firstItem="VgQ-bk-Qgb" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="rpq-MA-rmI"/>
                         </constraints>
                     </view>
